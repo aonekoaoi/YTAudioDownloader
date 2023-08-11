@@ -38,7 +38,7 @@ Visual Studio Code version 1.81.0 64-bit
 
 ## Contact Us
 
-X (Twitter) https://twitter.com/aonekoaoi
+X (Twitter): https://twitter.com/aonekoaoi
 
 ## License
 
