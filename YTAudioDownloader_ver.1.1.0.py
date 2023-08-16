@@ -54,7 +54,7 @@ print("\nフォーマットの変更開始")
 audio_path = os.path.join(folder_path, "audio.mp4a")
 audio_input = ffmpeg.input(audio_path)
 complete = os.path.join(folder_path, f"{stream.title}.mp3")
-ffmpeg.output(audio_input, complete, format="mp3").run(capture_stderr=True)
+ffmpeg.output(audio_input, complete, format="mp3", **{"b:a": "256k"}).run(capture_stderr=True)
 print("フォーマットの変更終了")
 
 os.remove(audio_path) # .mp4a形式のファイルを削除
