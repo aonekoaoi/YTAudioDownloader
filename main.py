@@ -1,3 +1,30 @@
+# YouTube Audio Downloader
+#
+# Distribution
+# The source code is distributed through GitHub.
+# 当ソースコードはGitHubを通じて配布されている。
+# GitHub: https://github.com/aonekoaoi/YTAudioDownloader
+#
+# Description
+# See README.md at GitHub.
+# GitHubのREADME.mdを参照してください。
+# GitHub: https://github.com/aonekoaoi/YTAudioDownloader/blob/main/README.md
+#
+# Development Environment
+# Microsoft Windows 10 Pro version 22H2 (OS build 19045.3208) 64-bit
+# Visual Studio Code version 1.81.0 64-bit
+# Python 3.11.3 64-bit
+#
+# Contact Us
+# X (Twitter): https://twitter.com/aonekoaoi
+#
+# License
+# Copyright (c) 2023 aonekoaoi
+# Licensed under the MIT license.
+# MiTライセンスに基づくライセンス。
+# en: https://github.com/aonekoaoi/YTAudioDownloader/blob/main/LICENSE.txt
+# ja: https://github.com/aonekoaoi/YTAudioDownloader/blob/main/LICENSE_ja.txt
+
 import os
 import sys
 import ffmpeg
@@ -40,10 +67,10 @@ elif audio is None:
 elif audio is None:
     audio = audio_fun("50kbps")
 elif audio is None:
-    audio = stream.streams.get_audio_only() # 上記の処理で音声ビットレートが存在しない場合の処理
+    audio = stream.streams.get_audio_only()  # 上記の処理で音声ビットレートが存在しない場合の処理
 else:
     print("音声ビットレートの情報取得ができません。\nお手数ですがYouTubeのURLかを確認した上で再度、プログラムを開始してください。\n")
-    sys.exit() # プログラムの強制終了
+    sys.exit()  # プログラムの強制終了
 print("音声ビットレートの情報取得終了")
 
 print("\nダウンロードの開始")
@@ -54,9 +81,17 @@ print("\nフォーマットの変更開始")
 audio_path = os.path.join(folder_path, "audio.mp4a")
 audio_input = ffmpeg.input(audio_path)
 complete = os.path.join(folder_path, f"{stream.title}.mp3")
-ffmpeg.output(audio_input, complete, format="mp3", **{"b:a": "256k"}).run(capture_stderr=True)
+ffmpeg.output(
+    # .mp3と256kbpsの変更
+    audio_input,
+    complete,
+    format="mp3",
+    **{"b:a": "256k"}
+).run(
+    capture_stderr=True
+)
 print("フォーマットの変更終了")
 
-os.remove(audio_path) # .mp4a形式のファイルを削除
+os.remove(audio_path)  # .mp4a形式のファイルを削除
 
 print("\nデスクトップのoutputフォルダー内に「", f"{stream.title}.mp3 」が格納されています。\n")
