@@ -6,7 +6,7 @@
 # Link: https://github.com/aonekoaoi/YTAudioDownloader
 #
 # 2. Description
-# See the README.md on GitHub.
+# See README.md on GitHub.
 # GitHub の README.md を参照してください。
 # Link: https://github.com/aonekoaoi/YTAudioDownloader/blob/main/README.md
 #
